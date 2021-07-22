@@ -80,6 +80,7 @@ public class AddActivity extends AppCompatActivity {
                 String Sname = etName.getText().toString().substring(0, 1).toUpperCase() + etName.getText().toString().substring(1).toLowerCase();
                 String Sphone = etPhone.getText().toString();
 
+
                 if (btn_save.getText().equals("Save")){
 
                     //PERINTAH SAVE
