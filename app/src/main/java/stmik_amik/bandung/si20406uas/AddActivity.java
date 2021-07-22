@@ -66,19 +66,19 @@ public class AddActivity extends AppCompatActivity {
         if (sPid.equals("")){
             btn_save.setText("Save");
             btn_cancel.setVisibility(View.GONE);
-            myToolbar.setTitle("Add Data Contact");
+            myToolbar.setTitle("Add Contact");
         } else {
             btn_save.setText("Edit");
-            btn_cancel.setText("Delete");
-            myToolbar.setTitle("Contact");
+            back.setVisibility(View.GONE);
+            myToolbar.setTitle("Contact Detail");
         }
 
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                String Sname = etName.getText().toString().substring(0, 1).toUpperCase() + etName.getText().toString().substring(1).toLowerCase();
                 String Sphone = etPhone.getText().toString();
-                String Sname = etName.getText().toString();
 
                 if (btn_save.getText().equals("Save")){
 
@@ -93,8 +93,8 @@ public class AddActivity extends AppCompatActivity {
                         loading.setVisibility(View.VISIBLE);
 
                         submitUser(new DataContact(
-                                Sname.toLowerCase(),
-                                Sphone.toLowerCase()));
+                                Sname,
+                                Sphone));
                         finish();
                     }
                 } else {
@@ -110,8 +110,8 @@ public class AddActivity extends AppCompatActivity {
                         loading.setVisibility(View.VISIBLE);
 
                         editUser(new DataContact(
-                                        Sname.toLowerCase(),
-                                        Sphone.toLowerCase()),
+                                        Sname,
+                                        Sphone),
                                 sPid);
                         finish();
                     }
